@@ -6,7 +6,7 @@
 /*   By: mgrandia <mgrandia@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 14:59:40 by mgrandia          #+#    #+#             */
-/*   Updated: 2025/08/31 11:57:04 by mgrandia         ###   ########.fr       */
+/*   Updated: 2025/09/27 10:59:13 by mgrandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	check_valid_arguments(char *argv[])
 	if (ft_isnum(argv[1]) != 0 || ft_atoi(argv[1]) > 200
 		|| ft_atoi(argv[1]) <= 0)
 		flag = printf("Invalid num of philos (%s)\n", argv[1]);
-	if (ft_isnum(argv[2]) != 0 || ft_atoi(argv[2]) < 0)
+	if (ft_isnum(argv[2]) != 0 || ft_atoi(argv[2]) < 60)
 		flag = printf("Invalid time to die (%s)\n", argv[2]);
-	if (ft_isnum(argv[3]) != 0 || ft_atoi(argv[3]) < 0)
+	if (ft_isnum(argv[3]) != 0 || ft_atoi(argv[3]) < 60)
 		flag = printf("Invalid time to eat (%s)\n", argv[3]);
-	if (ft_isnum(argv[4]) != 0 || ft_atoi(argv[4]) < 0)
+	if (ft_isnum(argv[4]) != 0 || ft_atoi(argv[4]) < 60)
 		flag = printf("Invalid time to sleep (%s)\n", argv[4]);
 	if (argv[5])
 	{

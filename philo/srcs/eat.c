@@ -6,7 +6,7 @@
 /*   By: mgrandia <mgrandia@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 14:59:40 by mgrandia          #+#    #+#             */
-/*   Updated: 2025/09/27 10:37:30 by mgrandia         ###   ########.fr       */
+/*   Updated: 2025/09/27 10:54:19 by mgrandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,50 +17,74 @@ void	take_a_fork(t_philo *philo)
 	long	t;
 
 	if (is_someone_die(philo))
-			return ;
+		return ;
 		
 	else if (philo->id % 2 == 0)
 	{
 		pthread_mutex_lock(philo->right_fork);
 		philo->has_right = 1;
 		t = get_current_time_ms() - (philo->shared->start_time);
-		print_text(0, philo, t);
-		if (is_someone_die(philo))
+	/*	if (is_someone_die(philo))
 		{
 			leave_forks(philo);
 			return ;
-		}
+		}*/
+
+		print_text(0, philo, t);
+	/*	if (is_someone_die(philo))
+		{
+			leave_forks(philo);
+			return ;
+		}*/
 		pthread_mutex_lock(philo->left_fork);
 		philo->has_left = 1;
 		t = get_current_time_ms() - (philo->shared->start_time);
-		print_text(0, philo, t);
-		if (is_someone_die(philo))
+	/*	if (is_someone_die(philo))
 		{
 			leave_forks(philo);
 			return ;
-		}
+		}*/
+
+		print_text(0, philo, t);
+	/*	if (is_someone_die(philo))
+		{
+			leave_forks(philo);
+			return ;
+		}*/
 	}
 	else
 	{
 		pthread_mutex_lock(philo->left_fork);
 		philo->has_left = 1;
 		t = get_current_time_ms() - (philo->shared->start_time);
-		print_text(0, philo, t);
-		if (is_someone_die(philo))
+		/*if (is_someone_die(philo))
 		{
 			leave_forks(philo);
 			return ;
-		}
+		}*/
+
+		print_text(0, philo, t);
+	/*	if (is_someone_die(philo))
+		{
+			leave_forks(philo);
+			return ;
+		}*/
 
 		pthread_mutex_lock(philo->right_fork);
 		philo->has_right = 1;
 		t = get_current_time_ms() - (philo->shared->start_time);
-		print_text(0, philo, t);
-		if (is_someone_die(philo))
+		/*if (is_someone_die(philo))
 		{
 			leave_forks(philo);
 			return ;
-		}
+		}*/
+
+		print_text(0, philo, t);
+		/*if (is_someone_die(philo))
+		{
+			leave_forks(philo);
+			return ;
+		}*/
 
 
 	}
@@ -103,14 +127,17 @@ int	eating_routine(t_philo *philo)
 	while (get_current_time_ms() - start < (long)philo->shared->time_to_eat)
 	{
 		if (is_someone_die(philo))
-			break ;
+		{
+			leave_forks(philo);
+			return (1);
+		}
 		usleep(100);
 	}
 	leave_forks(philo);
 	if (philo->shared->num_time_to_eat != -1
 		&& philo->meals_eaten >= philo->shared->num_time_to_eat)
 	{
-		leave_forks(philo);
+		//leave_forks(philo);
 		return (1);
 	}
 	return (0);
