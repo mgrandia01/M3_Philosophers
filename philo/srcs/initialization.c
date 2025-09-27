@@ -6,7 +6,7 @@
 /*   By: mgrandia <mgrandia@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 14:59:40 by mgrandia          #+#    #+#             */
-/*   Updated: 2025/08/31 11:57:04 by mgrandia         ###   ########.fr       */
+/*   Updated: 2025/09/27 09:54:48 by mgrandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	in_philo(t_shared *s_d, t_philo *p, char *argv[], pthread_mutex_t *fork)
 		p[i].last_meal_time = get_current_time_ms();
 		p[i].meals_eaten = 0;
 		p[i].shared = s_d;
+		p[i].has_left = 0;
+		p[i].has_right = 0;
 		p[i].left_fork = &fork[i];
 		p[i].right_fork = &fork[(i + 1) % num_philos];
 		i++;

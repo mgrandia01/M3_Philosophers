@@ -6,7 +6,7 @@
 /*   By: mgrandia <mgrandia@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 14:59:40 by mgrandia          #+#    #+#             */
-/*   Updated: 2025/09/26 19:30:14 by mgrandia         ###   ########.fr       */
+/*   Updated: 2025/09/27 09:54:09 by mgrandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_philo
 	int					meals_eaten;
 	pthread_mutex_t		meals_mutex;
 	t_shared			*shared;
+	int			has_left;
+	int			has_right;
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;
 }	t_philo;
