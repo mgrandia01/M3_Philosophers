@@ -6,7 +6,7 @@
 #    By: mgrandia <mgrandia@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/06 16:16:34 by mgrandia          #+#    #+#              #
-#    Updated: 2025/09/21 15:49:23 by mgrandia         ###   ########.fr        #
+#    Updated: 2025/09/27 11:26:10 by mgrandia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ DIR_SRC = srcs/
 # ARCHIVOS
 # ─────────────────────────────────────────────────────────────
 SRC = main.c philo_utils.c initialization.c util_atoi.c\
-	monitor.c eat.c
+	monitor.c eat.c monitor_2.c
 
 OBJS = $(addprefix $(DIR_OBJS), $(SRC:%.c=%.o))
 DEP_FILES = $(OBJS:%.o=%.d)
