@@ -33,3 +33,22 @@
 
 ```bash
 ./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
+
+# Clone the repository
+git clone [https://github.com/your-username/philosophers.git](https://github.com/your-username/philosophers.git)
+cd philosophers/philo
+
+# Compile binary
+make
+
+# Scenario 1: Standard endless survival test (4 philosophers)
+./philo 4 800 200 200
+
+# Scenario 2: Starvation test (philosopher should die around ~310ms)
+./philo 4 310 200 100
+
+# Scenario 3: Optional meal count limit (stops automatically after 7 meals each)
+./philo 5 800 200 200 7
+
+# Clean build artifacts
+make fclean
